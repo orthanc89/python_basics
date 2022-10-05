@@ -117,7 +117,16 @@ print(ausgabe+ "alles weg, siehst du ;-)")
 
 print("\n\n")
 
-#zeichen mit strip und co entfernen
-Print 
+##############################
+#column =9*"0"+10*"1"+10*"2"+10*"3"+10*"4"+10*"5"+"6"
+#column2 = 6*"1234567890"
+#print(column)
+#print(column2)
+countx = 5
 
+countxstr = str(countx); countxstr = countxstr.zfill(2)
+
+countxstr = str(countx).zfill(2).rjust(5," ")
+
+print(countxstr)
 
