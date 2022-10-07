@@ -122,7 +122,7 @@ startxk = startxk.ljust(19," ")
 startxl = startxl.ljust(19, " ")
 startxz = startxz.ljust(19, " ")
 footerx = footerx.center(29, " ")
-# out = startx + charx + footerx +  delmitter + countxstr
+#out = startx + charx + footerx +  delmitter + countxstr
 
 # grundaufbau befehl:
 # string = input
