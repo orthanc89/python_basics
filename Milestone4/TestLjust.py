@@ -9,3 +9,4 @@ ausgabe = inhalt.ljust(25, '0')
 print(ausgabe)
 print("\n\n\n")
 print("es kann immer nur 1 unicode zeichen eingesetzt werden, keine ganzen wörter")
+
