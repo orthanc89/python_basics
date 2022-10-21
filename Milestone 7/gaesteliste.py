@@ -213,7 +213,7 @@ def listuserpara():
         counter += 1
 
 
-#eintrag ändern
+#eintrag löschen
 def eintragdel():
 
     global gaestebuch
@@ -226,19 +226,27 @@ def eintragdel():
 def export():
     global gaestebuch
     global gi
-
+    #print(gaestebuch)
+    out = []
     try:
 
         with open('gaestebuch.csv', 'w') as f:
-            items = ['Vorname', 'Nachname', 'Tel. Nummer', 'Mail', 'Allergie', 'Gender']
-            writer = csv.DictWriter(f, fieldnames = items)
-            writer.writeheader()
-            for items, gi in dict.gaestebuch():
-                w.writeriw([items, gi])
+            xitems = ['Vorname', 'Nachname', 'Tel. Nummer', 'Mail', 'Allergie', 'Gender']
+           # writer = csv.DictWriter(f, fieldnames = xitems)
+            writer=csv.writer(f)
+             #writer.writeheader()
+            writer.writerow(xitems)
+            for xitem in gaestebuch(values);l=list(values):
+                dv = xitem.values()
+                out.append(xitem.values())
+                print(xitem.values())
+            print(out)
+            #writer.writerows(out)
+                #    writer.writeriw([gi])
             #for elem in gi:
                 #writer.writerow(elem)
-                print("Export erfolgreich!")
-                sleep(1)
+            print("Export erfolgreich!")
+            sleep(1)
     except IOError:
         print ("Fehler in der ein und oder ausgabe, Bitte wenden Sie an ihren lokalen SUDO-Admin")
 
