@@ -63,7 +63,7 @@ def chat_ai(eingabe):
         out = get_answer(xindex,passende_antworten)
         #print("Antwort"+ out)
     else:
-        yindex = get_random_answer(random_antworten)
+        yindex = genrandom_answer(random_antworten)
         yindex = 1
         out = get_random_answer(yindex,random_antworten)
         #print("Antwort" + out)
@@ -82,6 +82,7 @@ def check_benutzereingabe(eingabe):
     return x
 def show_end(winke="bye bye"):
     print(winke)
+
 def check_frage(eingabe,xlist):
     out = -1
     einzeltorte = eingabe.split(" ")
@@ -95,6 +96,7 @@ def check_frage(eingabe,xlist):
         #if inx =<
     #print(inx," ",wort)
     return out
+
 def get_answer(xindex,anworten_lst):
     out = " "
     out = anworten_lst[xindex]
@@ -122,15 +124,16 @@ random_antworten.append("Ich sehe Geld in deinen Leben $$$$")
 random_antworten.append("Sorry, ich wurde dafür nicht gut genug programmiert :D !!")
 #################################################
 # Hauptprogramm
-greetings()
-running = True
-while running:
-    eingabe = usereingaben()
-    #eingabe = "help"
-    if check_benutzereingabe(eingabe):
-        running = check_if_end(eingabe)
-        if running:
-            show_answer(chat_ai(eingabe))
-    else:
-        x = False
-show_end("Bis nächstes mal!!")
+def hauptprogramm
+    greetings()
+    running = True
+    while running:
+        eingabe = usereingaben()
+        #eingabe = "help"
+        if check_benutzereingabe(eingabe):
+            running = check_if_end(eingabe)
+            if running:
+                show_answer(chat_ai(eingabe))
+        else:
+            x = False
+    show_end("Bis nächstes mal!!")

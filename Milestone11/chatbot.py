@@ -13,6 +13,7 @@ endings = []
 bekannte_eingabe = []
 passende_antwort = []
 random_antworten = []
+
 ###############################################
 bekannte_eingabe.append("help")
 passende_antwort.append('Dir kann man nicht helfen')
@@ -22,6 +23,7 @@ bekannte_eingabe.append('lotto')
 passende_antwort.append('Seh ich wie eine glücksfee aus?')
 bekannte_eingabe.append('witz')
 passende_antwort.append('frag mal deine Mudda')
+bekannte_eingabe.append('bye bye')
 #################################################
 
 
@@ -35,40 +37,43 @@ random_antworten.append("Sorry, ich wurde dafür nicht gut genug programmiert :D
 greeting = ["Hallo User!", "Tagchen Nutzer!", "Ich hab dich erwartet User!", "Willkommen!"]
 namen = ['Ingeborg', 'Bärbel', 'Irmgard', 'Friedhelm', 'Bob', 'Gustav', 'Martha', 'Leopold', 'Karla', 'Editha', 'Karl',
          'Ansgar', 'Franz']
-endings = ['Tschüssikofsky', 'Paris, Athen, auf Wiedersehen', 'Ciao, Kakao', 'Auf Wiederhörnchen', 'Bis bald, im Wald',
-           'Bis Baldrian', 'Bis spätersilie']
+endings = ['Tschüssikofsky, ', 'Paris, Athen, auf Wiedersehen, ', 'Ciao, Kakao', 'Auf Wiederhörnchen, ', 'Bis bald, im Wald, ',
+           'Bis Baldrian, ', 'Bis spätersilie, ']
 #########################################
 
 #defs aufbauen
 
-def freitext():
-        global reaktion
-        reaktion = {"hallo": "aber Hallo",
-                              "geht": "Was verstehst du darunter?",
-                              "essen": "Ich habe leider keinen Geschmackssinn :("
-                              }
+#usernamen abfragen
 def neinname():
     global username
-
-    if username == "nein" or username == "ja" or username == 0:
+    global running
+    if username == "nein" or username == "ja" or username == 0 or username == '':
         print("Ich bin zwar nur ein Bot, aber ich möchte schon wissen, mit wem ich rede!")
         print('\n')
         username = ""
         username = input('Bitte nenn mir doch deinen namen: ')
         username = username.lower()
-        if username == "nein" or username == "ja" or username == 0:
-            print('Ja dann nicht' + random.choice(endings))
-            running = False
+#username entspricht keinen namen
+        if username == "nein" or username == "ja" or username == 0 or username == '':
 
+            print('Ja dann nicht ' + ' ' + random.choice(endings))
 
+            running = False #kill
+
+###########################################################
+#inhalt funktion
 def inhalt():
     global userx
-    global item
+    global items
     global random_antworten
+    global running
+    global item
+    global items
     item = 0
+
     if running:
         print()
-        items = bekannte_eingabe
+        items = bekannte_eingabe #bekannte eingabe in items umwandeln
         userx = ""
         print('Über folgendes kann ich mit dir reden, ' + username + ":" )
         print("\n")
@@ -76,41 +81,68 @@ def inhalt():
         print(items[1])
         print(items[2])
         print(items[3])
+        print(items[4])
         userx = input('Bitte wähle weise: ')
         userx = userx.lower()
+        #eingabe auf item erhöhen
         if userx == 'help':
             item += 1
+
         if userx == 'agb':
             item += 2
+
         if userx == 'lotto':
             item += 3
+
         if userx == 'witz':
             item +=4
 
-        else:
+        if userx == 'bye' or 'bye bye' or 'byebye':
+            item +=5
+
+
+        else: # falls die antwort nicht matched
             print(random.choice(random_antworten))
-            running = False
 
+           # running = False
 
+##############################################################
 def item0():
     global userx
     global username
+    global items
     global item
+    global passende_antwort
+    global endings
+
+    if item >= 1:
+        if item == 1:
+            print(passende_antwort[0])
+
+        if item == 2:
+            print(passende_antwort[1])
+
+        if item == 3:
+            print(passende_antwort[2])
+
+        if item == 4:
+            print(passende_antwort[3])
+
+        if item == 5: #kill
+            print(random.choice(endings) + username)
+            running = False
+    else:
+        print('Du musst schon was eingeben')
 
 
-    if user x == 'help':
-        print()
+#####################################################
 
-
-
-
-
-# hauptmen
-# ü
+# hauptmenü
+#
 # hauptmenü starten und userername abfragen
 
 running = True
-global running
+
 while running == True:
     global username
     print("\n\n")
@@ -119,17 +151,18 @@ while running == True:
     username = ""
     username = input("Hallo User, mein Name ist " + random.choice(namen) + " " + ", wie heißt du? ")
     username = username.lower()
-
+#usernamen abfragen und analysieren
     neinname()
+#inhalt anzeigen
     inhalt()
+#item ausgeben falls true
     item0()
 
 
 
-
+#abbrruch variable
 if running == False:
-    global running
-    print(random.choice(endings) + username)
+    print(random.choice(endings) + " " + username)
 
 
 

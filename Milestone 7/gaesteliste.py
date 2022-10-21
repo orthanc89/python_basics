@@ -236,7 +236,7 @@ def export():
             writer=csv.writer(f)
              #writer.writeheader()
             writer.writerow(xitems)
-            for xitem in gaestebuch(values);l=list(values):
+            for xitem in gaestebuch(values); l=list(values):
                 dv = xitem.values()
                 out.append(xitem.values())
                 print(xitem.values())
