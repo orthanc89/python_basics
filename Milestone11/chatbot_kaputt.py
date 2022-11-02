@@ -86,19 +86,19 @@ def inhalt():
         userx = userx.lower()
         #eingabe auf item erhöhen
         if userx == 'help':
-            item += 1
+            item = 1
 
         if userx == 'agb':
-            item += 2
+            item = 2
 
         if userx == 'lotto':
-            item += 3
+            item = 3
 
         if userx == 'witz':
-            item +=4
+            item = 4
 
         if userx == 'bye' or 'bye bye' or 'byebye':
-            item +=5
+            item = 5
 
 
         else: # falls die antwort nicht matched
@@ -116,19 +116,20 @@ def item0():
     global endings
 
     if item >= 1:
-        if item == 1:
+        item = item.__str__()
+        if item == '1':
             print(passende_antwort[0])
 
-        if item == 2:
+        if item == '2':
             print(passende_antwort[1])
 
-        if item == 3:
+        if item == '3':
             print(passende_antwort[2])
 
-        if item == 4:
+        if item == '4':
             print(passende_antwort[3])
 
-        if item == 5: #kill
+        if item == '5': #kill
             print(random.choice(endings) + username)
             running = False
     else:

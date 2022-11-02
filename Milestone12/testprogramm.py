@@ -8,6 +8,7 @@ import libs.gast_class as teilnehmer
 
 ######################################
 
+lottospiel = lotto()
 #umwidmung von class zu variablen
 #gast = teilnehmer
 #calender = calender
@@ -16,7 +17,9 @@ import libs.gast_class as teilnehmer
 
 #######################################
 #teilnehmer.set_gebdate(calender.get_datum(calender.get_data_from_user_view()))
-print(calender.get_datum(calender.get_data_from_user_view()))
+#print(calender.get_datum(calender.get_data_from_user_view()))
+
+print(lottospiel.)
 
 #
 #hautpmenu

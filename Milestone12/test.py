@@ -6,15 +6,18 @@ class tier():
 
     def __init__(self):
         self.tierart = "biene"
-        self.bewegung = "fliegen"
+        self.bewegung = "fliegen/krabbeln/laufen"
         self.laut = "sum sum"
         self.name = 'Biene maja'
+        self.beine = "6"
+        self.gattung = 'Insekt'
+        self.stoerfaktor = True
 
     def bewegen(self):
         return "laufen"
 
     def laut_geben(self):
-        return "wau wau"
+        return "sum sum"
 
     def set_name(self,name):
         self.name=name
