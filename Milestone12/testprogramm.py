@@ -1,10 +1,11 @@
 
 
 #libs import
-import libs.calender_class as calender
+import libs.calenderclass as calender
 import libs.lottoziehung_class as lotto
 import libs.schmeichelbot_class as bot
-import libs.gast_class as teilnehmer
+import libs.gastclass as teilnehmer
+
 
 ######################################
 

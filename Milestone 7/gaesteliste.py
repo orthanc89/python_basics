@@ -23,7 +23,7 @@ from time import sleep
 
 ###############################################
 #
-gaestebuch = []
+personenliste = []
 gasteintrag = {}
 gi = {}
 index = 0
@@ -35,7 +35,7 @@ gasteintrag['telnr'] = "+4900000000000"
 gasteintrag['mail'] = "Ertel@ben.deutschland"
 gasteintrag['allergie'] = "keine"
 gasteintrag['gender'] = "backfisch"
-gaestebuch.append(gasteintrag)
+personenliste.append(gasteintrag)
 #######################################################
 # Beispiele
 # gast in gaestebuch schreiben
@@ -48,7 +48,7 @@ gasteintrag1['telnr'] = "+4900000000000"
 gasteintrag1['mail'] = "backt@packt.deutschland"
 gasteintrag1['allergie'] = "(-.-)"
 gasteintrag1['gender'] = "MWD"
-gaestebuch.append(gasteintrag1)
+personenliste.append(gasteintrag1)
 ############################################################
 gasteintrag2 = {}
 
@@ -58,7 +58,7 @@ gasteintrag2['telnr'] = "+4900000000000"
 gasteintrag2['mail'] = "pan@pfanne.deutschland"
 gasteintrag2['allergie'] = "Q(-.-Q)"
 gasteintrag2['gender'] = "doof"
-gaestebuch.append(gasteintrag2)
+personenliste.append(gasteintrag2)
 #######################################################
 # Beispiele
 # gast in gaestebuch schreiben
@@ -97,15 +97,15 @@ def neuereintrag():
     gi['mail'] = input("Bitte den Mail eingeben:")
     gi['allergie'] = input("Bitte den Allergien eingeben:")
     gi['gender'] = input("Bitte den Geschlecht eingeben:")
-    gaestebuch.append(gi)
+    personenliste.append(gi)
     print("\n")
 
 items = ['Vorname', 'Nachname', 'Tel. Nummer', 'Mail', 'Allergie', 'Gender']
 
 def eintragaendern():
     global index
-    gi = gaestebuch[index]
-    anzahl = len(gaestebuch)
+    gi = personenliste[index]
+    anzahl = len(personenliste)
 
     print("Hier wird ein Neuer Gast eingetragen")
     gi['vname'] = input("Bitte den Vornamen eingeben:")
@@ -114,14 +114,14 @@ def eintragaendern():
     gi['mail'] = input("Bitte den Mail eingeben:")
     gi['allergie'] = input("Bitte den Allergien eingeben:")
     gi['gender'] = input("Bitte den Geschlecht eingeben:")
-    gaestebuch[index] = gi
+    personenliste[index] = gi
 
     print("\n")
 
 def eintragaendern1():
 
     global index
-    global gaestebuch
+    global personenliste
     global gasteintrag
     gi = gaestebuch[index]
 
@@ -181,7 +181,7 @@ def eintragaendern1():
 
 #user aufzeigen
 def listuser():
-    global gaestebuch
+    global personenliste
     counter = 0
     for gast in gaestebuch:
         #gast["vname"]
@@ -191,7 +191,7 @@ def listuser():
 
 def listuserpara():
     global index
-    global gaestebuch
+    global personenliste
     global gasteintrag
     gi = gaestebuch[index]
     counter = 0
@@ -216,7 +216,7 @@ def listuserpara():
 #eintrag löschen
 def eintragdel():
 
-    global gaestebuch
+    global personenliste
     listuser()
     zahl = input("Welcher Gast soll gelöscht werden (Nummer)")
     zahl = int(zahl)
@@ -224,7 +224,7 @@ def eintragdel():
 
 #exportieren
 def export():
-    global gaestebuch
+    global personenliste
     global gi
     #print(gaestebuch)
     out = []
@@ -290,5 +290,5 @@ while True:
         print("Programm wird verlassen")
         break
     #gästebuch in eine string umwandeln und dann formatieren und  dann ausgeben.
-    vaus = str(gaestebuch).replace('}, {', '},\n {')
+    vaus = str(personenliste).replace('}, {', '},\n {')
     #print(vaus)
